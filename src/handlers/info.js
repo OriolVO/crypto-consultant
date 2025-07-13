@@ -15,19 +15,22 @@ export async function handler (ctx) {
   try {
     const data = await getCryptoPrice(coinId)
 
-    const name = data.name // done
-    const symbol = data.symbol // done
-    const price = data.market_data.current_price.usd // done
-    const marketCap = data.market_data.market_cap.usd // done
-    const volume = data.market_data.total_volume.usd // done
-    const ath = data.market_data.ath.usd // done
-    const athDate = data.market_data.ath_date // done
-    const rank = data.market_cap_rank //
-    const description = data.description.en // done
-    const link = data.links.homepage[0] // done
+    const name = data.name
+    const symbol = data.symbol
+    const price = data.market_data.current_price.usd
+    const marketCap = data.market_data.market_cap.usd
+    const volume = data.market_data.total_volume.usd
+    const ath = data.market_data.ath.usd
+    const athDate = data.market_data.ath_date
+    const rank = data.market_cap_rank
+    let description = data.description.en
+    const link = data.links.homepage[0]
+
+    // Formatting description
+    if (description.length > 75) description = description.substring(0, 75) + '...'
 
     ctx.reply(`
-      *📈 Cryptocurrency: ${name}* (TICKER: ${symbol})
+      *📈 Cryptocurrency: ${name}* (SYMBOL: ${symbol})
       *💵 Price*: ${price}
       *💰 Market Cap*: ${marketCap}
       *💸 Volume*: ${volume}
