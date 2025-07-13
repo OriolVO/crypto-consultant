@@ -13,10 +13,10 @@ I’m your go-to Telegram bot for quick, reliable crypto insights. Here’s what
 
 📈 **What You’ll Get with `/info`**
 
+• Name and symbol
 • Current price in USD  
 • Market capitalization  
-• 24h trading volume & price change  
-• 7d price change  
+• Total volume
 • All-time high (ATH) and date  
 • Market cap rank  
 • Brief description & link to learn more  
